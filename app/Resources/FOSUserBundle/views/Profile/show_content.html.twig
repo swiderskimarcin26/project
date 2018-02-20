@@ -1,0 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<body style="background-color: #edf1f7; background-image: url('concrete-texture.png');">
+<div style="
+     margin:auto;
+     margin-top: 30px;
+     width: 35%; 
+     border: 2px solid #9096a0;
+     padding: 40px;
+     background-color:#dcdee2;
+     background-image: url('cork-wallet.png');">
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+</div>
+</div>
+</body>

@@ -1,0 +1,66 @@
+body{
+}
+div {
+    font-size: 18px;
+}
+
+.col{
+    display: inline-flex;
+     margin-left: 0px;
+ margin-right: 0px;
+ padding-left: 0px;
+ padding-right: 0px;
+}
+.content{
+    background-image: url("cork-wallet.png");
+    background-color:#dcdee2;
+    width: 90%; 
+    min-height: 600px;
+    margin: auto ;
+    padding: 5px;
+    border-style: groove ;
+    border: 2px solid #9096a0;
+    border-radius: 5px;
+}
+.menu{
+ background-image: url("cork-wallet.png");   
+ border-bottom: 2px solid #9096a0;   
+ background-color:#dcdee2;
+ min-height: 200px;
+ margin-left: 0px;
+ margin-right: 0px;
+ padding-left: 40px;
+ padding-right: 40px;
+ margin-bottom: 10px;
+ padding-top:15px;
+}
+.container2{
+ margin-left: 0px;
+ margin-right: 0px;
+ margin-top: 0px;
+ border-top: 2px solid #9096a0;
+ padding:0px;
+ background-color: #edf1f7;
+ background-image: url("brushed_@2X.png");
+}
+.form-check-input{
+    background-color:#dcdee2;
+
+}
+.col{
+  
+}
+.collapse multi-collapse{
+
+}
+
+.form-check{
+
+}
+
+.card card-body{
+
+}
+.btn btn-light{
+    background-color:#dcdee2;
+}

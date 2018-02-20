@@ -1,0 +1,23 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<body style="background-color: #edf1f7;background-image: url({{ asset ('brushed_@2X.png') }}); ">
+<div style="
+     margin:auto;
+     margin-top: 30px;
+     width: 35%; 
+     border: 2px solid #9096a0;
+     padding: 40px;
+     background-color:#dcdee2;
+     background-image: url({{ asset ('cork-wallet.png') }});">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+
+{{ form_widget(form) }}
+<div class="g-recaptcha" data-sitekey="6LdI0UYUAAAAADtC0Az81Gk-LPXY_tL9ZdYbJO0E"></div>
+    <div>
+        
+        
+        <input class="btn btn-primary" style="font-size: 20px;"  type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+</div>
+</body>

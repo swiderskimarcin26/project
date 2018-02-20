@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/Registration/register.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/web/mystyle.css</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/web/myjs.js</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/config/parameters.yml</file>
+            <file>file:/C:/xampp/htdocs/apka2/src/AppBundle/Entity/User.php</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/src/AppBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/views/default/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/notatki.php</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/Security/login.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/Security/login_content.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/config/routing.yml</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/layout.html.twig</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/config/security.yml</file>
+            <file>file:/C:/xampp/htdocs/apka2/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig</file>
+        </group>
+    </open-files>
+</project-private>
