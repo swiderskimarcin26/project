@@ -12,7 +12,7 @@ div {
  padding-right: 0px;
 }
 .content{
-    background-image: url("cork-wallet.png");
+    background-image: url("spiration-light.png");
     background-color:#dcdee2;
     width: 90%; 
     min-height: 600px;
@@ -21,9 +21,10 @@ div {
     border-style: groove ;
     border: 2px solid #9096a0;
     border-radius: 5px;
+    font-size: 20px;
 }
 .menu{
- background-image: url("cork-wallet.png");   
+ background-image: url("concrete_seamless.png");   
  border-bottom: 2px solid #9096a0;   
  background-color:#dcdee2;
  min-height: 200px;
@@ -40,8 +41,8 @@ div {
  margin-top: 0px;
  border-top: 2px solid #9096a0;
  padding:0px;
- background-color: #edf1f7;
- background-image: url("brushed_@2X.png");
+ background-color: white;
+ //background-image: url("concrete_seamless.png");
 }
 .form-check-input{
     background-color:#dcdee2;

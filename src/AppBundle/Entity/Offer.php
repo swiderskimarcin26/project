@@ -62,7 +62,64 @@ class Offer
      * @ORM\Column(name="wkuId", type="integer")
      */
     private $wkuId;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="hour", type="string")
+     */
+    private $hour;
+    
+        /**
+     * Get hour
+     *
+     * @return string
+     */
+    public function getHour($hour)
+    {
+        return $this->hour;
+    }
+   /**
+    * @var text
+    *
+    * @ORM\Column(name="offerDescription", type="text")
+    */
+    private $offerDescription; 
+        /**
+     * Get offerDescription
+     *
+     * @return text
+     */
+    public function getOfferDescription($offerDescription)
+    {
+        return $this->offerDescription;
+    }
 
+    /**
+     * Set offerDescription
+     *
+     * @param text $offerDescription
+     *
+     * @return Regiment
+     */
+    public function setOfferDescription($offerDescription)
+    {
+        $this->offerDescription = $offerDescription;
+
+        return $this;
+    }
+    /**
+     * Set hour
+     *
+     * @param string $hour
+     *
+     * @return Offer
+     */
+    public function setHour($hour)
+    {
+        $this->hour = $hour;
+
+        return $this;
+    }
 
     /**
      * Get id

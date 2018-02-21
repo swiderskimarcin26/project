@@ -82,13 +82,42 @@ class Regiment
      * @ORM\Column(name="telNumber", type="integer", length=30)
      */
     private $telNumber;
-    /**
+   /**
     * @var string
     *
     * @ORM\Column(name="regWku", type="string", length=30)
     */
     private $regWku;
+    /**
+    * @var text
+    *
+    * @ORM\Column(name="regDescription", type="text")
+    */
+    private $regDescription; 
+        /**
+     * Get regDescription
+     *
+     * @return text
+     */
+    public function getRegDescription($regDescription)
+    {
+        return $this->regDescription;
+    }
 
+    /**
+     * Set regDescription
+     *
+     * @param text $regDescription
+     *
+     * @return Regiment
+     */
+    public function setRegDescription($regDescription)
+    {
+        $this->name = $regDescription;
+
+        return $this;
+    }
+    
 
     /**
      * Get id
