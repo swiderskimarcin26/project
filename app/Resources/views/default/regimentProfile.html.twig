@@ -1,0 +1,80 @@
+{% extends 'header.html.twig' %}
+
+{% block body %}
+    <div class="content">
+
+        <div class="regimentName"><b>{{ vievRegimentPrepare[0].name }}</b></div>
+        <div id="description">{{ vievRegimentPrepare[0].regDescription }}</div>
+             <div class="card bg-light mb-3" style="margin: 10px;">
+                           
+                            <div class="card-body" style="margin-left: 45px;margin-right: 45px; " >
+                                <h4 class="card-title">Adres</h4>
+                                <p class="card-text">{{ vievRegimentPrepare[0].adress }}</p>
+                            </div>
+
+                            <div class="card-body" style="margin-left: 45px;margin-right: 45px;">
+                                <h4 class="card-title">Miasto</h4>
+                                <p class="card-text">{{ vievRegimentPrepare[0].city }} </p>
+                            </div>  
+
+                            <div class="card-body" style="margin-left: 45px;margin-right: 45px;">
+                                <h4 class="card-title">Województwo</h4>
+                                <p class="card-text"> {{ vievRegimentPrepare[0].county }} </p>
+                            </div>
+
+                            <div class="card-body" style="margin-left: 45px;margin-right: 45px;">
+                                <h4 class="card-title">Rodzaj wojsk</h4>
+                                <p class="card-text"> {{ vievRegimentPrepare[0].subtype }} </p>
+                            </div>
+                            <div class="card-body" style="margin-left: 45px;margin-right: 45px;">
+                                <h4 class="card-title">Telefon</h4>
+                                <p class="card-text"> {{ vievRegimentPrepare[0].telNumber }} </p>
+                            </div>
+             </div><br>
+        
+        {% for viev in vievRegimentPrepare %}    
+            <div class="card" >
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" >
+                        <div class="regimentName">Opis</div>
+                        <div class="card bg-light mb-3">
+                           
+                            <div class="card-body" style="margin-left: 80px;margin-right: 80px;" >
+                                <h4 class="card-title">Data publikacji</h4>
+                                <p class="card-text">{{ viev.dateInsert }} </p>
+                            </div>
+
+                            <div class="card-body" style="margin-left: 80px;margin-right: 80px;">
+                                <h4 class="card-title">Data rekrutacji</h4>
+                                <p class="card-text">{{ viev.dateRec }} </p>
+                            </div>
+
+                            <div class="card-body" style="margin-left: 80px;margin-right: 80px;">
+                                <h4 class="card-title">Godzina</h4>
+                                <p class="card-text">{{ viev.hour }} </p>
+                            </div>
+
+                            <div class="card-body" style="margin-left: 80px;margin-right: 80px;">
+                                <h4 class="card-title">Korpus</h4>
+                                <p class="card-text">{{ viev.corps }} </p>
+                            </div>
+
+                       
+                            <div style="clear:both; font-size: 16px; margin-bottom: 10px;"> Szczegóły: {{ viev.offerDescription }}</div>
+                        </div>
+
+
+
+                    </li> </ul> 
+
+
+
+            </div>
+
+
+
+        {% endfor %}                             
+
+    </div>
+
+{% endblock %}
