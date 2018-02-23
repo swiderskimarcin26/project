@@ -12,8 +12,8 @@ div {
  padding-right: 0px;
 }
 .content{
-    background-image: url("spiration-light.png");
-    background-color:#dcdee2;
+    
+
     width: 90%; 
     min-height: 600px;
     margin: auto ;
@@ -22,11 +22,33 @@ div {
     border: 2px solid #9096a0;
     border-radius: 5px;
     font-size: 20px;
+    padding:45px;
+background: rgba(204,210,240,1);
+background: -moz-linear-gradient(top, rgba(204,210,240,1) 0%, rgba(239,239,242,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(204,210,240,1)), color-stop(100%, rgba(239,239,242,1)));
+background: -webkit-linear-gradient(top, rgba(204,210,240,1) 0%, rgba(239,239,242,1) 100%);
+background: -o-linear-gradient(top, rgba(204,210,240,1) 0%, rgba(239,239,242,1) 100%);
+background: -ms-linear-gradient(top, rgba(204,210,240,1) 0%, rgba(239,239,242,1) 100%);
+background: linear-gradient(to bottom, rgba(204,210,240,1) 0%, rgba(239,239,242,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd2f0', endColorstr='#efeff2', GradientType=0 );
+/*    background: rgba(207,232,247,1);
+background: -moz-linear-gradient(top, rgba(207,232,247,1) 0%, rgba(242,244,245,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(207,232,247,1)), color-stop(100%, rgba(242,244,245,1)));
+background: -webkit-linear-gradient(top, rgba(207,232,247,1) 0%, rgba(242,244,245,1) 100%);
+background: -o-linear-gradient(top, rgba(207,232,247,1) 0%, rgba(242,244,245,1) 100%);
+background: -ms-linear-gradient(top, rgba(207,232,247,1) 0%, rgba(242,244,245,1) 100%);
+background: linear-gradient(to bottom, rgba(207,232,247,1) 0%, rgba(242,244,245,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cfe8f7', endColorstr='#f2f4f5', GradientType=0 );*/
+}
+.navigation{
+    width:100%;
+    background-color: white;
+    height: 68px;
+    border-bottom: 2px solid #9096a0;
 }
 .menu{
- background-image: url("concrete_seamless.png");   
- border-bottom: 2px solid #9096a0;   
- background-color:#dcdee2;
+  background-image: url("concrete_seamless.png");
+  border-bottom: 2px solid #9096a0;
  min-height: 200px;
  margin-left: 0px;
  margin-right: 0px;
@@ -34,19 +56,57 @@ div {
  padding-right: 40px;
  margin-bottom: 10px;
  padding-top:15px;
+ margin-top: 0px;
+}
+#container{
+ background-image: url("spiration-light.png");   
 }
 .container2{
  margin-left: 0px;
  margin-right: 0px;
  margin-top: 0px;
- border-top: 2px solid #9096a0;
  padding:0px;
  background-color: white;
- //background-image: url("concrete_seamless.png");
+ background-image: url("spiration-light.png");   
+ 
 }
 .form-check-input{
     background-color:#dcdee2;
 
+}
+#nazwa{
+    font-size: 26px;
+    margin:20px;
+    background-color:white;
+    border-bottom: 2px solid #9096a0;  
+}
+#nazwa:hover{
+   background-color:gray;
+   
+}
+.regimentName{
+        font-size: 26px;
+        margin:auto;
+        text-align: center;
+}
+.card{
+   min-height: 90px;
+
+}
+#description{
+   font-size: 19px;
+   margin:10px;
+   margin-top:20px;
+}
+.card-body{
+    float: left;
+    margin-left:25px;
+    margin-right:25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card-header{
+    margin:auto;
 }
 .col{
   
@@ -56,7 +116,7 @@ div {
 }
 
 .form-check{
-
+font-size:16px;
 }
 
 .card card-body{
@@ -64,4 +124,8 @@ div {
 }
 .btn btn-light{
     background-color:#dcdee2;
+}
+.tabel{
+ width: 200px;
+ float:left;
 }
