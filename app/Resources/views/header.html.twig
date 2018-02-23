@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+  
+        {% endblock %}    
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+        <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css') }}" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+         <link rel="stylesheet" type="text/css" href="{{ asset('mystyle.css') }}">  
+	{% block javascript %}
+        <!-- Latest compiled and minified JavaScript -->
+	<script src="{{ asset('jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('myjs.js') }}"></script>
+	<script src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src='{{ asset('https://www.google.com/recaptcha/api.js') }}'></script>
+        
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+     <div id="container" style=" width:100%; min-height: 700px; padding: 0px; background-color: white;">
+         <div class="navigation">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded"style="height:40px; background-color: white; " >
+            <button type="button" class="btn btn-light" style="background-color:#ffffff;float: right;"> 
+                <a class="navbar-brand" href="/register" style=" font-size: 21px;">Zarejestruj</a>
+            </button>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <div style="font-size:21px; color:#337ab7; height: 64px; padding: 15px; text-align: center; float:left;">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </div>
+                <button type="button" class="btn btn-light" style="background-color:#ffffff; float: right;"> 
+                <a class="navbar-brand" style=" font-size: 21px;" href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a></button>
+            {% else %}<button type="button" class="btn btn-light" style="background-color:#ffffff; float: right;"> 
+                <a class="navbar-brand" style=" font-size: 21px;" href="{{ path('fos_user_security_login') }}">Zaloguj </a>
+                 </button>
+            {% endif %}
+            {% if app.request.hasPreviousSession %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+            <button type="button" class="btn btn-light" style="background-color:#ffffff; float: right;"> 
+                <a class="navbar-brand" href="/profile" style=" font-size: 21px;">Profil</a>
+            </button>
+
+        </nav>
+         </div>
+
+
+<form method="POST" > 
+                <div class="menu">          
+                    <p>  
+                        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Resort</a>
+                        <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" style="margin-left:20px ;margin-right:10px;">Wyszukuj według</button>
+                        <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3" style="margin-left:10px ;margin-right:10px;">Rodzaj sił</button>
+                        <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4" style="margin-left:10px ;margin-right:10px;">Województwo</button>
+                        <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5" style="margin-left:10px ;margin-right:10px;">Korpus</button>
+                        <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2"style="margin-left:10px ;margin-right:20px;">Wysuń wszystkie elementy</button>
+                        <button type="submit" class="btn btn-danger btn-lg" style="font-size:40px;  padding-left:10px; padding-right:10px;  margin-top: 22px;">Wyszukuj
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </p>
+
+
+
+                    <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Resort" id="Resort" value="Resort" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Resort
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample2">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="chose" id="oferty" value="oferty" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Oferty
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="chose" id="regiment" value="regiment">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Jednostki wojskowe
+                                    </label>
+                                </div>      
+                            </div>
+                        </div>
+                    </div>    
+
+                    <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample3">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="allkind" value="all" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Wybierz wszystkie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="land" value="land">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Wojska Lądowe
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="navy" value="navy">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Marynarka Wojenna
+                                    </label>
+                                </div> 
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="air" value="air">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Siły powietrzne
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kind" id="special" value="special">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Siły specjalne
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample4">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="all" value="allcounty" id="allcounty" onClick="do_this()" checked   >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Wybierz wszystkie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="approve[]" value="malopolska" id="malopolska" checked  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Małopolskie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="approve[]" value="gslask" id="gslask" checked  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Górnośląskie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="approve[]" value="opolskie" id="opolskie" checked  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Opolskie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="approve[]" value="dslask" id="dslask" checked  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Dolnośląskie
+                                    </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="approve[]" value="lubuskie" id="lubuskie" checked  >
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Lubuskie
+                                    </label>        
+
+                                </div>         
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample5">
+                            <div class="card card-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="corps" id="allcorps" value="allcorps" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Wybierz wszystkie
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="corps" id="private" value="private">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Szeregowych
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="corps" id="ncoficer" value="ncoficer">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Podoficerów
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="corps" id="oficer" value="oficer">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Oficerów
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="corps" id="civil" value="civil">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Cywilny
+                                    </label>
+                                </div>           
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </form>
+         
+        {% block body %}
+        
+        {% endblock %}
+     </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+    
+
