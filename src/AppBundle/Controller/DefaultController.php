@@ -68,7 +68,7 @@ class DefaultController extends Controller
              
             if($request->get("all")=="deselect"){
                 $this->countyWhere="regiment.county";
-                $this->countyWhere="county='malopolska' or county='gslask' or county='dslask' or county='opolskie' or county='lubuskie' ";
+                $this->countyWhere="county='Małopolska' or county='GórnyŚląsk' or county='Dolny Śląsk' or county='Mazowieckie' or county='Lubuskie' ";
                 return $this->countySelect && $this->countyWhere;
             }
             else{       
@@ -83,30 +83,30 @@ class DefaultController extends Controller
                     $or="";}  
                 if ($post[$i]=='malopolska') {
                     $this->countySelect="regiment.county";
-                    $this->countyMalopolskaWhere= $or."county='malopolska' ";
+                    $this->countyMalopolskaWhere= $or."county='Małopolska' ";
                     $this->countySelect && $this->countyMalopolskaWhere;
                 }
         
                 if ($post[$i]=='gslask') {
                     $this->countySelect="regiment.county";
-                    $this->countyGslaskWhere=$or."county='gslask' ";
+                    $this->countyGslaskWhere=$or."county='Górny Śląsk' ";
                     $this->countySelect && $this->countyWhere;
                 }
         
                 if ($post[$i]=='dslask') {
                     $this->countySelect="regiment.county";
-                    $this->countyDslaskWhere=$or."county='dslask' ";
+                    $this->countyDslaskWhere=$or."county='Dolny Śląsk' ";
                     $this->countySelect && $this->countyWhere;
                 }
             
                 if ($post[$i]=='opolskie') {
                     $this->countySelect="regiment.county";
-                    $this->countyOpolskieWhere=$or."county='opolskie' ";
+                    $this->countyOpolskieWhere=$or."county='Mazowieckie' ";
                     $this->countySelect && $this->countyWhere;
                 }
                 if ($post[$i]=='lubuskie') {
                     $this->countySelect="regiment.county";
-                    $this->countyOpolskieWhere=$or."county='lubuskie' ";
+                    $this->countyOpolskieWhere=$or."county='Lubuskie' ";
                     $this->countySelect && $this->countyWhere;
                 }
 
@@ -128,24 +128,24 @@ class DefaultController extends Controller
             switch ($request->get("corps")) {
                 case "allcorps":
                     $this->corpsSelect="offer.corps";
-                    $this->corpsWhere="AND (corps='private' or corps='ncoficer' or corps='oficer' or corps='civil') ";
+                    $this->corpsWhere="AND (corps='szeregowych' or corps='podoficerów' or corps='oficerów' or corps='cywilny') ";
                     return $this->corpsSelect && $this->corpsWhere;
                 break;
                 case "private":
                     $this->corpsSelect="offer.corps";
-                    $this->corpsWhere="corps='private' ";
+                    $this->corpsWhere="corps='szeregowych' ";
                 break;
                 case "ncoficer":
                     $this->corpsSelect="offer.corps";
-                    $this->corpsWhere="corps='ncoficer' ";
+                    $this->corpsWhere="corps='podoficerów' ";
                 break;
                 case "oficer":
                     $this->corpsSelect="offer.corps";
-                    $this->corpsWhere="corps='oficer' ";
+                    $this->corpsWhere="corps='oficerów' ";
                 break;
                 case "civil":
                     $this->corpsSelect="offer.corps";
-                    $this->corpsWhere="corps='civil' ";
+                    $this->corpsWhere="corps='cywilny' ";
                 break;
             
                
@@ -159,24 +159,43 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/regiment/{id}", name="regiment")
      */
   
 
     
-    public function indexAction(Request $request)
+    public function regimentAction($id)
     {
         $conn = $this->getDoctrine()->getConnection();
         
-        if ($request->getMethod()=="POST") {
             
+            $queryRegimentPrepare= "SELECT * FROM regiment LEFT JOIN offer ON offer.regimentId=regiment.id WHERE regiment.id='$id'" ;
+         
+            
+            $statement = $conn->prepare($queryRegimentPrepare);
+            $statement->execute();
+            $regiment = $statement->fetchAll();
+            return $this->render('default/regiment/regimentProfile.html.twig',["vievRegimentPrepare"=>$regiment]);
+          
+    }
+    
+
+    /**
+     * @Route("/", name="homepage")
+     */
+  
+    
+    public function indexAction(Request $request)
+    {
+        $conn = $this->getDoctrine()->getConnection();
+
+        if ($request->getMethod()=="POST") {
             $this->offertAction($request);
             $this->countyAction($request);
             $this->corpsAction($request);
             $this->typeAction($request);
-
             $queryPrepare= "SELECT * FROM regiment  "." ".$this->offerSelect." WHERE (".$this->kindWhere .") AND (".$this->countyWhere.")".$this->corpsWhere;
-            var_dump($queryPrepare);
+
             echo"<br>";
             $statement = $conn->prepare($queryPrepare);
             $statement->execute();
@@ -188,3 +207,4 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig',["vievPrepare"=>$users]);
     }
 }
+
